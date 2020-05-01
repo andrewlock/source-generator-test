@@ -10,5 +10,12 @@
     <ItemGroup>
       <Analyzer Include="../Generators/bin/Debug/netstandard2.0/Generators.dll" />
     </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\Generators\Generators.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="Microsoft.Net.Compilers.Toolset" Version="3.6.0-3.final" />
+      <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.0" />
+    </ItemGroup>
 
 </Project>
