@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Text;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Text;
 
@@ -9,7 +7,12 @@ namespace Generators
     [Generator]
     public class HelloWorldGenerator : ISourceGenerator
     {
-        public void Execute(SourceGeneratorContext context)
+        public void Initialize(GeneratorInitializationContext context)
+        {
+           
+        }
+
+        public void Execute(GeneratorExecutionContext context)
         {
             // begin creating the source we'll inject into the users compilation
             var sourceBuilder = new StringBuilder(@"
@@ -41,11 +44,6 @@ namespace HelloWorldGenerated
 
             // inject the created source into the users compilation
             context.AddSource("helloWorldGenerator", SourceText.From(sourceBuilder.ToString(), Encoding.UTF8));
-        }
-
-        public void Initialize(InitializationContext context)
-        {
-            // No initialization required for this one
         }
     }
 }
